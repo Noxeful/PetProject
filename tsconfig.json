@@ -17,6 +17,8 @@
     "baseUrl": "./src",
     "paths": {
       "@auth/*": ["app/app-modules/auth/*"],
+      "@shared/*": ["app/app-modules/shared/*"],
+      "@material/*": ["app/app-modules/material/*"],
     }
   },
   "angularCompilerOptions": {
