@@ -1,11 +1,22 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { AuthDTO } from '@auth/auth-core/models/auth-state-models';
+import { AuthStore } from '@auth/auth-store/auth-store';
 
 @Component({
   selector: 'login-container',
-  standalone: false,
   templateUrl: './login-container.html',
-  styleUrl: './login-container.css',
+  styleUrl: './login-container.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
+export class LoginContainer {
+  readonly authStore = inject(AuthStore);
 
-export class LoginContainer {}
+  constructor() {
+
+  }
+
+  public onSubmit(formValue: AuthDTO): void {
+    this.authStore.login(formValue);
+  }
+}
